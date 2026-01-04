@@ -19,7 +19,7 @@ export default function ChartsSection() {
   const [auc, setAuc] = useState<number>(0);
 
   useEffect(() => {
-    fetch("https://ml-cardiodisease-prediction-1.onrender.com/roc")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/roc`)
       .then((res) => res.json())
       .then((data) => {
         // setRocData(data.roc_curve);

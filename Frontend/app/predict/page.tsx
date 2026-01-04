@@ -203,7 +203,7 @@ export default function PredictionForm() {
     setResult(null)
 
     try {
-      const response = await fetch("https://ml-cardiodisease-prediction-1.onrender.com/predict", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
