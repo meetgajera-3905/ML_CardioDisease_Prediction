@@ -28,25 +28,6 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground">Connect</h3>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="bg-secondary hover:bg-secondary/80 p-3 rounded-lg transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5 text-foreground" />
-              </a>
-              <a
-                href="#"
-                className="bg-secondary hover:bg-secondary/80 p-3 rounded-lg transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="h-5 w-5 text-foreground" />
-              </a>
-            </div>
-          </div>
         </div>
 
         {/* Bottom Bar */}
