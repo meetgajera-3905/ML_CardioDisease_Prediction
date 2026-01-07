@@ -2,6 +2,7 @@
 
 import { Card } from "@/components/ui/card"
 import { useState, useEffect } from "react";
+import { TrendingUp } from "lucide-react"
 import {
   BarChart,
   Bar,
@@ -12,6 +13,9 @@ import {
   ResponsiveContainer,
   LineChart,
   Line,
+  ScatterChart,
+  Scatter,
+  ReferenceLine
 } from "recharts"
 
 export default function ChartsSection() {
@@ -40,6 +44,27 @@ export default function ChartsSection() {
     { model: "SVM", accuracy: 73.56, color: "hsl(var(--accent))" }
   ]
 
+  const cvAccuracyData = [
+  { fold: "F-1", accuracy: 0.73371429 },
+  { fold: "F-2", accuracy: 0.73314286 },
+  { fold: "F-3", accuracy: 0.74357143 },
+  { fold: "F-4", accuracy: 0.743 },
+  { fold: "F-5", accuracy: 0.73042857 },
+  { fold: "F-6", accuracy: 0.73871429 },
+  { fold: "F-7", accuracy: 0.73457143 },
+  { fold: "F-8", accuracy: 0.73885714 },
+  { fold: "F-9", accuracy: 0.73371429 },
+  { fold: "F-10", accuracy: 0.737 },
+]
+
+const meanAccuracy = 0.7366
+
+const scatterData = cvAccuracyData.map((d, i) => ({
+  fold: i + 1,
+  acc: d.accuracy,
+}))
+
+
   const COLORS = ["hsl(var(--chart-3))", "hsl(var(--destructive))", "hsl(var(--destructive))", "hsl(var(--chart-1))"]
 
   // Feature importance
@@ -56,6 +81,7 @@ export default function ChartsSection() {
     { feature: "Gender", importance: 0.40 },
     { feature: "Height", importance: 0.35 }
   ]
+
 
   return (
     <section className="py-20 container mx-auto px-4">
@@ -305,6 +331,76 @@ export default function ChartsSection() {
             </div>
           </div>
         </Card>
+
+ <Card className="p-6 border-primary/20">
+  <h3 className="text-xl font-semibold mb-1">
+    Cross-Validation Accuracy Distribution
+  </h3>
+  <p className="text-sm text-muted-foreground mb-4">
+    Fold-wise accuracy with mean reference (cv = 10)<br/>
+    Mean Accuracy = 0.7366
+  </p>
+
+  <div className="h-72">
+    <ResponsiveContainer width="100%" height="100%">
+      <ScatterChart
+        margin={{ top: 20, right: 50, left: 40, bottom: 40 }}
+      >
+        {/* X Axis */}
+        <XAxis
+          dataKey="fold"
+          type="number"
+          domain={[1, 10]}
+          tickCount={10}
+          label={{
+            value: "Cross-Validation Fold",
+            position: "insideBottom",
+            offset: -10,
+          }}
+        />
+
+        {/* Y Axis */}
+        <YAxis
+          dataKey="acc"
+          domain={[0.70, 0.78]}
+          tickCount={5}
+          tickFormatter={(v) => v.toFixed(2)}
+          label={{
+            value: "Accuracy Score",
+            angle: -90,
+            position: "insideLeft",
+            offset: -10,
+          }}
+        />
+
+        {/* Tooltip */}
+        <Tooltip
+          formatter={(value: number) =>
+            `Accuracy: ${(value * 100).toFixed(2)}%`
+          }
+        />
+
+        {/* Mean Accuracy Reference Line */}
+        <ReferenceLine
+  y={meanAccuracy}
+  stroke="#ef4444"
+  strokeDasharray="4 4"
+/>
+
+
+
+        {/* Scatter Points */}
+        <Scatter
+          data={scatterData}
+          fill="#22c55e"
+          shape="circle"
+        />
+      </ScatterChart>
+    </ResponsiveContainer>
+  </div>
+</Card>
+
+
 
 
         </div>
