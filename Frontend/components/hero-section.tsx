@@ -54,7 +54,7 @@ export default function HeroSection() {
               size="lg"
               variant="outline"
               className="text-lg px-8 bg-transparent"
-              onClick={() => document.getElementById("model-info")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => router.push("/model-details")}
             >
               Learn More
             </Button>

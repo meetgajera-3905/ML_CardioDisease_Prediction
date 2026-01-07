@@ -1,9 +1,6 @@
 import HeroSection from "@/components/hero-section"
 import DisclaimerSection from "@/components/disclaimer-section"
-import ModelInfoSection from "@/components/model-info-section"
 import WorkflowSection from "@/components/workflow-section"
-import ChartsSection from "@/components/charts-section"
-import Footer from "@/components/footer"
 import ThemeToggle from "@/components/theme-toggle"
 
 export default function Home() {
@@ -12,10 +9,7 @@ export default function Home() {
       <ThemeToggle />
       <HeroSection />
       <DisclaimerSection />
-      <ModelInfoSection />
-      <WorkflowSection />
-      <ChartsSection />
-      <Footer />
+      <WorkflowSection />      
     </main>
   )
 }
