@@ -58,7 +58,7 @@ export default function ChartsSection() {
   ]
 
   return (
-    <section className="py-20 container mx-auto px-4 bg-secondary/30">
+    <section className="py-20 container mx-auto px-4">
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Section Header */}
         <div className="text-center space-y-4">
