@@ -27,7 +27,7 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       size="icon"
       variant="outline"
-      className="fixed top-6 right-6 z-50 rounded-full bg-card/80 backdrop-blur border-primary/20 hover:bg-card hover:border-primary/40 transition-all duration-300"
+      className="fixed top-20 right-6 z-50 rounded-full bg-card/80 backdrop-blur border-primary/20 hover:bg-card hover:border-primary/40 transition-all duration-300"
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (
