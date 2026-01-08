@@ -32,7 +32,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© 2025 CardioPredict AI. Academic Project - For Educational Purposes Only.</p>
+          <p>© 2026 CardioPredict AI. Academic Project - For Educational Purposes Only.</p>
         </div>
       </div>
     </footer>

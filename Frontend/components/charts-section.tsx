@@ -332,76 +332,71 @@ const scatterData = cvAccuracyData.map((d, i) => ({
           </div>
         </Card>
 
- <Card className="p-6 border-primary/20">
-  <h3 className="text-xl font-semibold mb-1">
-    Cross-Validation Accuracy Distribution
-  </h3>
-  <p className="text-sm text-muted-foreground mb-4">
-    Fold-wise accuracy with mean reference (cv = 10)<br/>
-    Mean Accuracy = 0.7366
-  </p>
+        <Card className="p-6 border-primary/20">
+          <h3 className="text-xl font-semibold mb-1">
+            Cross-Validation Accuracy Distribution
+          </h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Fold-wise accuracy with mean reference (cv = 10)<br/>
+            Mean Accuracy = 0.7366
+          </p>
 
-  <div className="h-72">
-    <ResponsiveContainer width="100%" height="100%">
-      <ScatterChart
-        margin={{ top: 20, right: 50, left: 40, bottom: 40 }}
-      >
-        {/* X Axis */}
-        <XAxis
-          dataKey="fold"
-          type="number"
-          domain={[1, 10]}
-          tickCount={10}
-          label={{
-            value: "Cross-Validation Fold",
-            position: "insideBottom",
-            offset: -10,
-          }}
-        />
+          <div className="h-72">
+            <ResponsiveContainer width="100%" height="100%">
+              <ScatterChart
+                margin={{ top: 20, right: 50, left: 40, bottom: 40 }}
+              >
+                {/* X Axis */}
+                <XAxis
+                  dataKey="fold"
+                  type="number"
+                  domain={[1, 10]}
+                  tickCount={10}
+                  label={{
+                    value: "Cross-Validation Fold",
+                    position: "insideBottom",
+                    offset: -10,
+                  }}
+                />
 
-        {/* Y Axis */}
-        <YAxis
-          dataKey="acc"
-          domain={[0.70, 0.78]}
-          tickCount={5}
-          tickFormatter={(v) => v.toFixed(2)}
-          label={{
-            value: "Accuracy Score",
-            angle: -90,
-            position: "insideLeft",
-            offset: -10,
-          }}
-        />
+                {/* Y Axis */}
+                <YAxis
+                  dataKey="acc"
+                  domain={[0.70, 0.78]}
+                  tickCount={5}
+                  tickFormatter={(v) => v.toFixed(2)}
+                  label={{
+                    value: "Accuracy Score",
+                    angle: -90,
+                    position: "insideLeft",
+                    offset: -10,
+                  }}
+                />
 
-        {/* Tooltip */}
-        <Tooltip
-          formatter={(value: number) =>
-            `Accuracy: ${(value * 100).toFixed(2)}%`
-          }
-        />
+                {/* Tooltip */}
+                <Tooltip
+                  formatter={(value: number) =>
+                    `Accuracy: ${(value * 100).toFixed(2)}%`
+                  }
+                />
 
-        {/* Mean Accuracy Reference Line */}
-        <ReferenceLine
-  y={meanAccuracy}
-  stroke="#ef4444"
-  strokeDasharray="4 4"
-/>
+                {/* Mean Accuracy Reference Line */}
+                <ReferenceLine
+                  y={meanAccuracy}
+                  stroke="#ef4444"
+                  strokeDasharray="4 4"
+                />
 
-
-
-        {/* Scatter Points */}
-        <Scatter
-          data={scatterData}
-          fill="#22c55e"
-          shape="circle"
-        />
-      </ScatterChart>
-    </ResponsiveContainer>
-  </div>
-</Card>
-
-
-
+                {/* Scatter Points */}
+                <Scatter
+                  data={scatterData}
+                  fill="#22c55e"
+                  shape="circle"
+                />
+              </ScatterChart>
+            </ResponsiveContainer>
+          </div>
+        </Card>
 
         </div>
 
