@@ -63,7 +63,7 @@ export default function HeroSection() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">73.97%</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">74.0%</div>
               <div className="text-sm text-muted-foreground">Accuracy</div>
             </div>
             <div className="space-y-2">
@@ -71,7 +71,7 @@ export default function HeroSection() {
               <div className="text-sm text-muted-foreground">Data Points</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-chart-3">0.805</div>
+              <div className="text-3xl md:text-4xl font-bold text-chart-3">0.806</div>
               <div className="text-sm text-muted-foreground">ROC-AUC</div>
             </div>
           </div>

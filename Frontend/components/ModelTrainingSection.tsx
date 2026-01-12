@@ -35,15 +35,23 @@ export default function ModelTrainingSection() {
         "Synthetic Minority Over-sampling Technique (SMOTE) is applied only on the training data to balance class distribution and reduce prediction bias.",
     },
     {
-        step: "04",
-        title: "Feature Normalization (RobustScaler)",
-        icon: SlidersHorizontal,
-        description:
-            "Numerical features are normalized using RobustScaler, which scales data based on median and interquartile range (IQR), ensuring robustness against remaining outliers.",
-        },
+      step: "04",
+      title: "Feature Normalization (RobustScaler)",
+      icon: SlidersHorizontal,
+      description:
+          "Numerical features are normalized using RobustScaler, which scales data based on median and interquartile range (IQR), ensuring robustness against remaining outliers.",
+    },
 
     {
-        step: "05",
+      step: "05",
+      title: "Hyperparameter Tuning",
+      icon: SlidersHorizontal,
+      description:
+        "Key model hyperparameters are optimized using Grid Search with 10-fold cross-validation. This step identifies the best parameter combination to improve accuracy, generalization, and performance consistency across folds.",
+    },
+
+    {
+        step: "06",
         title: "Model Training",
         icon: Activity,
         description:
@@ -57,7 +65,7 @@ export default function ModelTrainingSection() {
         "The trained model is evaluated on unseen test data using accuracy, precision, recall, F1-score, and ROC-AUC metrics.",
     },
     {
-        step: "07",
+        step: "08",
         title: "Model Saving & Deployment",
         icon: Save,
         description:

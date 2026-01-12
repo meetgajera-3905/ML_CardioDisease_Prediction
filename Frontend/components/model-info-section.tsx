@@ -86,11 +86,11 @@ export default function ModelInfoSection() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span className="text-muted-foreground">Accuracy</span>
-                  <span className="font-semibold text-primary">73.97%</span>
+                  <span className="font-semibold text-primary">74.0%</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span className="text-muted-foreground">ROC-AUC Score</span>
-                  <span className="font-semibold text-accent">0.805</span>
+                  <span className="font-semibold text-accent">0.806</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span className="text-muted-foreground">Libraries Used</span>

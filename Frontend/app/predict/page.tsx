@@ -12,8 +12,15 @@ import {
   Sparkles,
   ArrowLeft,
   Heart,
+  AlertTriangle,
+  CheckCircle2,
+  Info,
+  ListChecks,
+  TrendingUp,
 } from "lucide-react"
 import Link from "next/link"
+
+
 
 const samplePatients = [
   {
@@ -161,6 +168,27 @@ export default function PredictionForm() {
       ],
     }
   }
+
+  const getIconForBlock = (text: string) => {
+  if (text.startsWith("Risk Level")) {
+    return <AlertTriangle className="h-5 w-5 text-destructive" />
+  }
+
+  if (text.startsWith("Risk Probability")) {
+    return <TrendingUp className="h-5 w-5 text-blue-600" />
+  }
+
+  if (text.startsWith("Recommended Actions")) {
+    return <ListChecks className="h-5 w-5 text-accent" />
+  }
+
+  if (text.startsWith("•")) {
+    return <CheckCircle2 className="h-4 w-4 text-green-600 mt-1" />
+  }
+
+  return <Info className="h-5 w-5 text-muted-foreground" />
+}
+
 
   const streamAllContent = async (
     risk: string,
@@ -380,19 +408,21 @@ export default function PredictionForm() {
 
                   {/* Streaming paragraph */}
                   {streamBlocks.map((block, i) => (
-                    <p
+                    <div
                       key={i}
-                      className={`text-lg ${
+                      className={`flex items-start gap-3 text-lg ${
                         block.startsWith("Risk Level")
                           ? "font-bold text-xl"
                           : block.startsWith("Recommended")
-                          ? "font-semibold mt-3"
+                          ? "font-semibold mt-4"
                           : ""
                       }`}
                     >
-                      {block}
-                    </p>
-                    ))}
+                      {getIconForBlock(block)}
+                      <span>{block}</span>
+                    </div>
+                  ))}
+
                 </Card>
               )}
 
